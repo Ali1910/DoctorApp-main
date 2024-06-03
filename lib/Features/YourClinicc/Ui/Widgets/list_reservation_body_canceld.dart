@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gbsub/Core/services/sharedpref.dart';
 import 'package:gbsub/Core/utils/Errors/Widgets/custom_error_widget.dart';
 import 'package:gbsub/Core/utils/constans.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/list_reservation_canceld_item.dart';
@@ -13,7 +14,7 @@ class ListReservationCanceld extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: BlocProvider.of<ReservationCubit>(context)
-          .deleteAppointments(appointmentid: 1),
+          .deleteAppointments(Sharedhelper.getintdata(intkey)),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         return BlocBuilder<ReservationCubit, ReservationStates>(
           builder: (context, state) {

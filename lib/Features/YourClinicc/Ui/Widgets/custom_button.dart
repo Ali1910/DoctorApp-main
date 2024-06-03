@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
           showDialog(
             context: context,
             builder: (context) {
-              return Customdialog();
+              return const Customdialog();
             },
           );
         },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gbsub/Core/services/sharedpref.dart';
 import 'package:gbsub/Core/utils/Errors/Widgets/custom_error_widget.dart';
 import 'package:gbsub/Core/utils/constans.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/List_reservation_item.dart';
@@ -13,7 +14,7 @@ class ListReservation extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: BlocProvider.of<ReservationCubit>(context)
-          .fetchReservation(doctorId: 1),
+          .fetchReservationDone(Sharedhelper.getintdata(intkey), false),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         return BlocBuilder<ReservationCubit, ReservationStates>(
           builder: (context, state) {

@@ -17,7 +17,7 @@ class ReservationViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ReservationCubit(
-        ReservationRepoImpl(apiService: ApiService(Dio())),
+        Dio(),
       ),
       child: SafeArea(
         child: Directionality(

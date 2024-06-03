@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gbsub/Core/cubits/bottomnavigationbarcubit/Bottomnavigationbarcubit.dart';
-import 'package:gbsub/Core/cubits/bottomnavigationbarcubit/Bottomnavigationvarstates.dart';
 import 'package:gbsub/Core/utils/constans.dart';
 import 'package:gbsub/Core/utils/style.dart';
-import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_button_item.dart';
+import 'package:gbsub/Core/utils/custom_button_item.dart';
 import 'package:gbsub/Features/profile_page/ui/widgets/custom_profile_view_body_divider.dart';
 import 'package:gbsub/Features/questionandanswer/Question/ui/widgets/add_answer_question_view.dart';
 import 'package:gbsub/Features/questionandanswer/Question/ui/widgets/custom_doctor_answer.dart';
