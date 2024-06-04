@@ -64,7 +64,7 @@ class CustomReservationItemButtonsRow extends StatelessWidget {
               );
             }
           },
-          text: 'ملخص الجلسه',
+          text: 'ملخص الجلسة',
           textcolor: Colors.white,
           buttonColor: mainColor,
         ),
