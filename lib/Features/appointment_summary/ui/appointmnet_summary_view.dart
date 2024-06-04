@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:gbsub/Features/YourClinicc/Models/reservation_models.dart';
 import 'package:gbsub/Features/appointment_summary/ui/appointment_view_body.dart';
-
-import 'package:gbsub/Features/asnwer/ui/CustomAppbar.dart';
+import 'package:gbsub/Features/questionandanswer/asnwer/ui/CustomAppbar.dart';
 
 class AppointmentSummaryView extends StatelessWidget {
-  const AppointmentSummaryView({super.key});
-
+  const AppointmentSummaryView({super.key, required this.model});
+  final ReservationModels model;
   @override
   Widget build(BuildContext context) {
-    return const Directionality(
+    return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: CustomAppbar(title: 'ملخص الكشف'),
-        body: AppointmentSummaryViewBody(),
+        appBar: const CustomAppbar(title: 'ملخص الكشف'),
+        body: AppointmentSummaryViewBody(model: model),
       ),
     );
   }

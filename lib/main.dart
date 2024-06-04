@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +6,6 @@ import 'package:gbsub/Core/services/sharedpref.dart';
 import 'package:gbsub/Features/Home/Ui/Home_view.dart';
 import 'package:gbsub/Features/Login/Ui/login_view.dart';
 import 'package:gbsub/Features/YourClinicc/logic/reservation_cubit.dart';
-import 'package:gbsub/Features/appointment_summary/ui/appointmnet_summary_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,21 +13,6 @@ Future<void> main() async {
 
   runApp(const MyApp());
 }
-// Future<void> main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Sharedhelper.sharedPreferencesinit();
-//   HttpOverrides.global = MyHttpOverrides();
-//   runApp(const MyApp());
-// }
-
-// class MyHttpOverrides extends HttpOverrides {
-//   @override
-//   HttpClient createHttpClient(SecurityContext? context) {
-//     return super.createHttpClient(context)
-//       ..badCertificateCallback =
-//           (X509Certificate cert, String host, int port) => true;
-//   }
-// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -39,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => ReservationCubit(Dio()),
+          create: (context) => ReservationCubit(),
         ),
         BlocProvider(
           create: (context) =>
@@ -53,7 +36,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
           home: BlocProvider.of<MainCubit>(context).loggedin
-              ? const AppointmentSummaryView()
+              ? const HomeView()
               : const LoginView(),
         ),
       ),

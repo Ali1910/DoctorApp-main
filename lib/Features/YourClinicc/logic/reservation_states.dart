@@ -1,5 +1,3 @@
-import 'package:gbsub/Features/YourClinicc/Models/reservation_models.dart';
-
 abstract class ReservationStates {}
 
 class ReservationInitial extends ReservationStates {}
@@ -8,14 +6,12 @@ class ReservationLoading extends ReservationStates {}
 
 class ReservationDelete extends ReservationStates {}
 
-class ReservationSuccess extends ReservationStates {
-  final List<ReservationModels> reservation;
+class ReservationSuccess extends ReservationStates {}
 
-  ReservationSuccess(this.reservation);
-}
+class ReservationFailure extends ReservationStates {}
 
-class ReservationFailure extends ReservationStates {
-  final String errMessege;
+class FormFeildChanged extends ReservationStates {}
 
-  ReservationFailure(this.errMessege);
-}
+class ReservationTimesLoadingSuccessState extends ReservationStates {}
+
+class ReservationDatePickedState extends ReservationStates {}

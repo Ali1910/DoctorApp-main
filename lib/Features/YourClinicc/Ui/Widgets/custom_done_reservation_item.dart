@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gbsub/Core/utils/constans.dart';
+import 'package:gbsub/Core/utils/style.dart';
 import 'package:gbsub/Features/YourClinicc/Models/reservation_models.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_reservation_informations.dart';
-import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_buttons_row.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_divider.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_reservation_item_image.dart';
 
-class CustomReservationItem extends StatelessWidget {
-  const CustomReservationItem({
+class CustomDoneReservationItem extends StatelessWidget {
+  const CustomDoneReservationItem({
     super.key,
     required this.reservationModels,
   });
@@ -40,8 +41,9 @@ class CustomReservationItem extends StatelessWidget {
           SizedBox(
             height: 5.h,
           ),
-          CustomReservationItemButtonsRow(
-            reservationModels: reservationModels,
+          Text(
+            'تم أنهاء هذا الحجز',
+            style: Styles.style16.copyWith(color: mainColor),
           ),
           SizedBox(
             height: 10.h,
