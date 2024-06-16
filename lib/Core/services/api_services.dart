@@ -22,4 +22,9 @@ class ApiService {
     var response = await _dio.post('$_baseUrl$endPoint', data: data);
     return response.data;
   }
+
+  Future<dynamic> delete({required String endpoint}) async {
+    var response = await _dio.delete('$_baseUrl$endpoint');
+    return response;
+  }
 }

@@ -25,7 +25,6 @@ class InstructionRepoImpl implements InstructionRepo {
         HealthAdviceModel healthAdviceModel = HealthAdviceModel.json(
             data['healthAdvice'][i], data['doctor'][i], data['spec'][i]);
         healthadvices.add(healthAdviceModel);
-        print(healthadvices);
       }
 
       return right(healthadvices);
@@ -59,6 +58,27 @@ class InstructionRepoImpl implements InstructionRepo {
       return left(
         ServerFailure(
           e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> deleteAdvice(
+      {required int healthadviceId}) async {
+    try {
+      var response = await apiService.delete(
+          endpoint: '/HealthAdvice?healthadviceId=$healthadviceId');
+      return right(true);
+    } catch (ex) {
+      if (ex is DioException) {
+        return left(
+          ServerFailure.fromdioException(ex),
+        );
+      }
+      return left(
+        ServerFailure(
+          ex.toString(),
         ),
       );
     }

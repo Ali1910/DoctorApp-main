@@ -15,9 +15,9 @@ class InstructionsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => InstructionCubit(
-        InstructionRepoImpl(apiService: ApiService(Dio())),
-      ),
+      create: (context) =>
+          InstructionCubit(InstructionRepoImpl(apiService: ApiService(Dio())))
+            ..fetchHealthadvice(pageNum: 1, pagesize: 30),
 
       child: SafeArea(
         child: Directionality(

@@ -6,11 +6,7 @@ final class InstructionInitial extends InstructionState {}
 
 final class InstructionLoading extends InstructionState {}
 
-final class InstructionSuccess extends InstructionState {
-  final List<HealthAdviceModel> instruction;
-
-  InstructionSuccess(this.instruction);
-}
+final class InstructionSuccess extends InstructionState {}
 
 final class InstructionFailure extends InstructionState {
   final String errMessege;
