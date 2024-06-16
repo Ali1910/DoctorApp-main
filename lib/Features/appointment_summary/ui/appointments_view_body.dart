@@ -6,7 +6,7 @@ import 'package:gbsub/Core/utils/constans.dart';
 import 'package:gbsub/Features/YourClinicc/Models/reservation_models.dart';
 import 'package:gbsub/Features/YourClinicc/logic/reservation_cubit.dart';
 import 'package:gbsub/Features/YourClinicc/logic/reservation_states.dart';
-import 'package:gbsub/Features/appointment_summary/ui/widgets/custom_appointment_summary_text_form_feild.dart';
+import 'package:gbsub/Features/appointment_summary/ui/widgets/lib/Features/appointment_summary/ui/widgets/custom_appointment_summary_text_form_feild.dart';
 import 'package:gbsub/core/utils/style.dart';
 
 class AppointmentSummaryViewBody extends StatelessWidget {

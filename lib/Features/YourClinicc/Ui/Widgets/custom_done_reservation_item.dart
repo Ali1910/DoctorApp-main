@@ -25,7 +25,7 @@ class CustomDoneReservationItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               CutomReservationItemImage(
-                pic: reservationModels.pic,
+                pic: '$imageUrl${reservationModels.pic}',
               ),
               CustomReservationInformations(
                   name: reservationModels.name,

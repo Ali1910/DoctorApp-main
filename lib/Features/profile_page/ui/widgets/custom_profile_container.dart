@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gbsub/Core/utils/constans.dart';
 import 'package:gbsub/Core/utils/style.dart';
+import 'package:gbsub/Core/utils/widgets/loading_body.dart';
 import 'package:gbsub/Features/patients_record/Ui/patient_record_view.dart';
+import 'package:gbsub/Features/personal_details/ui/personal_details_view.dart';
 import 'package:gbsub/Features/profile_page/data/profile_model.dart';
 import 'package:gbsub/Features/profile_page/logic/profile_cubit.dart';
+import 'package:gbsub/Features/profile_page/logic/profile_states.dart';
 import 'package:gbsub/Features/profile_page/ui/widgets/custom_profile_view_body_divider.dart';
 import 'package:gbsub/Features/profile_page/ui/widgets/custom_profile_view_body_item.dart';
 import 'package:gbsub/Features/profile_page/ui/widgets/prodile_picture_profile_view.dart';
@@ -24,7 +28,14 @@ class CustomProfileConatiner extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            CustomProfilePictuteProfileView(pic: profileModel.pic),
+            BlocBuilder<ProfileCubit, ProfileStates>(
+              builder: (context, state) {
+                return state is ProfileImageUpdatedLoading
+                    ? const LoadingBody()
+                    : CustomProfilePictuteProfileView(
+                        pic: '$imageUrl${profileModel.pic}');
+              },
+            ),
             SizedBox(
               height: 5.h,
             ),
@@ -55,7 +66,18 @@ class CustomProfileConatiner extends StatelessWidget {
             ),
             const CustomDivider(),
             CustomProfileViewBodyItem(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return PersonalDetialsView(
+                        profileModel: profileModel,
+                      );
+                    },
+                  ),
+                );
+              },
               text: 'معلومات شخصية',
               imageUrl: 'assets/images/personalcard.png',
               color: Colors.blue,

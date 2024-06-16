@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gbsub/Features/YourClinicc/Models/reservation_models.dart';
-import 'package:gbsub/Features/appointment_summary/ui/appointment_view_body.dart';
+import 'package:gbsub/Features/appointment_summary/ui/appointments_view_body.dart';
 import 'package:gbsub/Features/questionandanswer/asnwer/ui/CustomAppbar.dart';
 
 class AppointmentSummaryView extends StatelessWidget {

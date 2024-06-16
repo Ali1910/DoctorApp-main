@@ -5,8 +5,7 @@ import 'package:gbsub/Core/utils/widgets/custom_snack_bar.dart';
 import 'package:gbsub/Features/YourClinicc/Models/reservation_models.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_reservation_button.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_dialog.dart';
-
-import 'package:gbsub/Features/appointment_summary/ui/appointmnet_summary_view.dart';
+import 'package:gbsub/Features/appointment_summary/ui/appointments_summary_view.dart';
 
 class CustomReservationItemButtonsRow extends StatelessWidget {
   const CustomReservationItemButtonsRow({

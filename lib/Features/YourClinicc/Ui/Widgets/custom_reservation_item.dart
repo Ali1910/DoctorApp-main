@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gbsub/Core/utils/constans.dart';
 import 'package:gbsub/Features/YourClinicc/Models/reservation_models.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_reservation_informations.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_buttons_row.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_divider.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_reservation_item_image.dart';
 
-class CustomUpcomingReservationItem extends StatelessWidget {
-  const CustomUpcomingReservationItem({
+class CustomReservationItem extends StatelessWidget {
+  const CustomReservationItem({
     super.key,
     required this.reservationModels,
   });
@@ -25,7 +24,7 @@ class CustomUpcomingReservationItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               CutomReservationItemImage(
-                pic: '$imageUrl${reservationModels.pic}',
+                pic: reservationModels.pic,
               ),
               CustomReservationInformations(
                   name: reservationModels.name,

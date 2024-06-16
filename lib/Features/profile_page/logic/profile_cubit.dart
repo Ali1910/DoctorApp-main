@@ -8,6 +8,8 @@ import 'package:gbsub/Core/utils/constans.dart';
 import 'package:gbsub/Features/Login/Ui/login_view.dart';
 import 'package:gbsub/Features/profile_page/data/profile_model.dart';
 import 'package:gbsub/Features/profile_page/logic/profile_states.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 class ProfileCubit extends Cubit<ProfileStates> {
   ProfileCubit() : super(ProfileInitialState());
@@ -21,6 +23,29 @@ class ProfileCubit extends Cubit<ProfileStates> {
       profileModel = ProfileModel.fromjson(response.data);
     } on Exception catch (e) {
       print(e.toString());
+    }
+  }
+
+  Future<bool> updateProfilePic() async {
+    File? selectedImage;
+    final returnedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (returnedImage == null) {
+      return false;
+    } else {
+      selectedImage = File(returnedImage.path);
+      var data = FormData.fromMap({
+        'image': await MultipartFile.fromFile(selectedImage.path),
+        "UserId": Sharedhelper.getintdata(intkey),
+      });
+      try {
+        emit(ProfileImageUpdatedLoading());
+        await dio.put('$baseUrl/Doctor', data: data);
+        emit(ProfileImageUpdatedSuccessfully());
+        return true;
+      } catch (ex) {
+        return false;
+      }
     }
   }
 

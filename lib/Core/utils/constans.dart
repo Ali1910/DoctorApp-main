@@ -16,4 +16,4 @@ const String boolkey = 'LoggedIN';
 // const String baseUrl = 'https://10.0.2.2:7093/api';
 const String baseUrl = 'http://webapi.runasp.net/api';
 
-const String imageUrl = 'https://10.0.2.2:7093/Resources/';
+const String imageUrl = 'http://webapi.runasp.net/Resources/';
