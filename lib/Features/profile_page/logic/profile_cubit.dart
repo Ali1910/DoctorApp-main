@@ -36,7 +36,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
       selectedImage = File(returnedImage.path);
       var data = FormData.fromMap({
         'image': await MultipartFile.fromFile(selectedImage.path),
-        "UserId": Sharedhelper.getintdata(intkey),
+        "doctorId": Sharedhelper.getintdata(intkey),
       });
       try {
         emit(ProfileImageUpdatedLoading());

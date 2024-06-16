@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gbsub/Core/utils/constans.dart';
+import 'package:gbsub/Features/profile_page/logic/profile_cubit.dart';
 
 class CustomProfilePictuteProfileView extends StatelessWidget {
   const CustomProfilePictuteProfileView({
@@ -28,10 +30,16 @@ class CustomProfilePictuteProfileView extends StatelessWidget {
           child: CircleAvatar(
             radius: 12.w,
             backgroundColor: Colors.white,
-            child: Icon(
-              Icons.edit_outlined,
-              size: 20,
-              color: mainColor,
+            child: IconButton(
+              padding: EdgeInsets.zero,
+              icon: Icon(
+                Icons.edit_outlined,
+                size: 20,
+                color: mainColor,
+              ),
+              onPressed: () {
+                BlocProvider.of<ProfileCubit>(context).updateProfilePic();
+              },
             ),
           ),
         ),
