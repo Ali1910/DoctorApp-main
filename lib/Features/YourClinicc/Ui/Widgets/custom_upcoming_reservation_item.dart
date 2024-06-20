@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gbsub/Core/utils/constans.dart';
 import 'package:gbsub/Features/YourClinicc/Models/reservation_models.dart';
+import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_contact_message_icon.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_reservation_informations.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_buttons_row.dart';
 import 'package:gbsub/Features/YourClinicc/Ui/Widgets/custom_divider.dart';
@@ -22,7 +23,7 @@ class CustomUpcomingReservationItem extends StatelessWidget {
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CutomReservationItemImage(
                 pic: '$imageUrl${reservationModels.pic}',
@@ -33,8 +34,10 @@ class CustomUpcomingReservationItem extends StatelessWidget {
                   day: reservationModels.day,
                   year: reservationModels.year,
                   appointmentTime: reservationModels.appointmentTime),
-              // This Is Messege Whith Doctor
-              // const CustomConatctMessageIcon()
+              CustomConatctMessageIcon(
+                name: reservationModels.name,
+                phoneNumber: reservationModels.number,
+              )
             ],
           ),
           const CustomReservationDivider(),

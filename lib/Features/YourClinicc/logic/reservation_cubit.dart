@@ -41,8 +41,8 @@ class ReservationCubit extends Cubit<ReservationStates> {
 
   Future<bool> deleteAppointments(int appointmentid) async {
     try {
-      await dio
-          .delete("$baseUrl/AppointmentContoller?AppontmentId=$appointmentid");
+      await dio.delete(
+          "$baseUrl/AppointmentContoller/DeleteForDoctor?AppontmentId=$appointmentid");
 
       return true;
     } catch (ex) {
